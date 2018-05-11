@@ -5,7 +5,7 @@
  - Get user Browser Name.
  - Get user Browser Version.
  - Get user Operating System Name.
-
+ - Get user Operating System Version.
 
 
 

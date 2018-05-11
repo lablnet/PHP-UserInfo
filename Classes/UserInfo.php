@@ -30,6 +30,11 @@ class UserInfo{
      * @access private
      */  
    private $Ip;
+    /**
+     * For stroring OsVersion
+     * @access private
+     */  
+   private $OsVersion;   
      /**
      * __construct
      *
@@ -57,7 +62,9 @@ class UserInfo{
 
       unset($this->B_Agent); 
 
-      unset($this->Ip);      
+      unset($this->Ip);
+
+      unset($this->OsVersion);      
 
    }
     /**
@@ -86,6 +93,10 @@ class UserInfo{
       }elseif(preg_match_all('/iPhone/i', $this->UserAgent)){
 
         $this->PlatForm  = 'IOS';
+
+      }elseif(preg_match_all('/ubuntu/i', $this->UserAgent)){
+
+        $this->PlatForm  = 'Ubuntu';
 
       }else{
 
@@ -118,6 +129,12 @@ class UserInfo{
 
         $this->B_Agent = "Opera"; 
 
+      }elseif(preg_match_all('/Opera/i', $this->UserAgent)){
+
+        $this->Browser  = 'Opera';
+
+        $this->B_Agent = "Opera"; 
+        
       }elseif(preg_match_all('/Chrome/i', $this->UserAgent)){
 
         $this->Browser  = 'Google Chrome';
@@ -130,7 +147,7 @@ class UserInfo{
 
         $this->B_Agent = "Safari"; 
 
-      }elseif(preg_match_all('/AppleWebKit/i')){
+      }elseif(preg_match_all('/Safari/i')){
 
         $this->Browser  = 'Apple Safari';
 
@@ -145,6 +162,66 @@ class UserInfo{
 
       }
    }
+    /**
+     * Get Os version
+     *
+     * @return void
+     */ 
+   public function OSVersion(){
+
+      if(preg_match_all('/windows nt 10/i',$this->UserAgent)){
+
+          $this->OsVersion = 'Windows 10';
+
+      }elseif(preg_match_all('/windows nt 6.3/i',$this->UserAgent)){
+
+          $this->OsVersion = 'Windows 8.1';
+
+      }elseif(preg_match_all('/windows nt 6.2/i',$this->UserAgent)){
+
+          $this->OsVersion = 'Windows 8';
+
+      }elseif(preg_match_all('/windows nt 6.1/i',$this->UserAgent)){
+
+          $this->OsVersion = 'Windows 7';
+
+      }elseif(preg_match_all('/windows nt 6.0/i',$this->UserAgent)){
+
+          $this->OsVersion = 'Windows Vista';
+
+      }elseif(preg_match_all('/windows nt 5.1/i',$this->UserAgent)){
+
+          $this->OsVersion = 'Windows Xp';
+
+      }elseif(preg_match_all('/windows xp/i',$this->UserAgent)){
+
+          $this->OsVersion = 'Windows Xp';
+
+      }elseif(preg_match_all('/windows me/i',$this->UserAgent)){
+
+          $this->OsVersion = 'Windows Me';
+
+      }elseif(preg_match_all('/win98/i',$this->UserAgent)){
+
+          $this->OsVersion = 'Windows 98';
+
+      }elseif(preg_match_all('/win95/i',$this->UserAgent)){
+
+          $this->OsVersion = 'Windows 95';
+
+      }elseif(preg_match_all('/Windows Phone +[0-9]/i',$this->UserAgent,$match)){
+
+          $this->OsVersion = $match;
+
+      }elseif(preg_match_all('/Android +[0-9]/i',$this->UserAgent,$match)){
+
+          $this->OsVersion = $match;
+
+      }
+
+
+   }
+
     /**
      * Get Browser version
      *
@@ -220,6 +297,7 @@ class UserInfo{
       self::Browser();
       self::Ip();
       self::BrowserVersion();
+      self::OSVersion();
 
          return [
 
@@ -230,6 +308,8 @@ class UserInfo{
             'Version' => $this->Version,
 
             'Ip' => $this->Ip,
+
+            'Os Version ' => $this->OsVersion,
 
          ];  
     }

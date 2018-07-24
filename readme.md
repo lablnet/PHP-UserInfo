@@ -6,6 +6,7 @@
  - Get user Browser Version.
  - Get user Operating System Name.
  - Get user Operating System Version.
+ - Check is user from mobile.
 
 
 

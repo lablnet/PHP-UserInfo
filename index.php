@@ -3,15 +3,21 @@ require_once 'classes/UserInfo.php';
   
 $info = new UserInfo;
 
-print_r($info->Info());
+$osName = $info->operatingSystem();
+$osVersion = $info->osVersion();
+$browserName = $info->browser()['browser'];
+$browserVersion = $info->browserVersion();
+$ip = $info->ip();
+$isMobile = $info->isMobile();
 
+$data = [
+	'Operating System Name' => $osName,
+	'Operating System Version' => $osVersion,
+	'Browser Name' => $browserName,
+	'Browser Version' => $browserVersion,
+	'Ip address' => $ip,
+	'Is Mobile' => $isMobile
+];
+var_dump($data);
 
-//echo "<br>";
-
-//print_r($_SERVER['HTTP_USER_AGENT']);
-
-
-
-//for performance improvement
-$info->Free();
 

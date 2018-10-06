@@ -1,6 +1,6 @@
 <?php
 
-require_once 'classes/UserInfo.php';
+require_once 'Classes/UserInfo.php';
 
 $info = new UserInfo();
 

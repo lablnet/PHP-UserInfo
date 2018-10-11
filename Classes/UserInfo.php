@@ -74,9 +74,9 @@ class UserInfo
         } elseif (preg_match_all('/Safari/i', $UserAgent)) {
             $Browser = 'Apple Safari';
             $B_Agent = 'Safari';
-        } elseif (preg_match_all('/Safari/i')) {
-            $Browser = 'Apple Safari';
-            $B_Agent = 'AppleWebKit';
+        } elseif (preg_match_all('/firefox/i',$UserAgent)) {
+            $Browser = 'Mozilla Firefox';
+            $B_Agent = 'Firefox';
         } else {
             $Browser = null;
             $B_Agent = null;

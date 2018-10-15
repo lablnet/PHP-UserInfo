@@ -31,8 +31,8 @@ class UserInfo
         $UserAgent = self::agent();
         if (preg_match_all('/windows/i', $UserAgent)) {
             $PlatForm = 'Windows';
-        } elseif (preg_match_all('/lunix/i', $UserAgent)) {
-            $PlatForm = 'Lunix';
+        } elseif (preg_match_all('/linux/i', $UserAgent)) {
+            $PlatForm = 'Linux';
         } elseif (preg_match('/macintosh|mac os x/i', $UserAgent)) {
             $PlatForm = 'Macintosh';
         } elseif (preg_match_all('/Android/i', $UserAgent)) {
@@ -119,6 +119,8 @@ class UserInfo
         } elseif (preg_match_all('/Windows Phone +[0-9]/i', $UserAgent, $match)) {
             $OsVersion = $match;
         } elseif (preg_match_all('/Android +[0-9]/i', $UserAgent, $match)) {
+            $OsVersion = $match;
+        } elseif(preg_match_all('/Linux +x[0-9]+/i', $UserAgent, $match)) {
             $OsVersion = $match;
         }
 

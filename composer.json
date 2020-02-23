@@ -1,0 +1,21 @@
+{
+    "name": "lablnet/userinfo",
+    "description": "PHP Userinfo package.",
+    "keywords": ["php", "userinfo","free","package","Lablnet"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Muhammad Umer Farooq",
+            "email":"mumerfarooqlablnet01@gmail.com",
+            "homepage": "https://lablnet.github.io/profile"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lablnet\\": "src/"
+        }
+    }
+}
